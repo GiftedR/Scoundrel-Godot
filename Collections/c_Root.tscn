@@ -1,9 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://otjqhyeeycmr"]
+[gd_scene load_steps=3 format=3 uid="uid://otjqhyeeycmr"]
 
-[ext_resource type="PackedScene" uid="uid://bv2cb3m55xmny" path="res://Pieces/p_Card.tscn" id="1_tvbs5"]
+[ext_resource type="Script" path="res://Pieces/p_Helpers.gd" id="1_5dum5"]
+[ext_resource type="Script" path="res://Collections/c_Root/Root.gd" id="1_ugna7"]
 
 [node name="nde_Root" type="Node"]
+script = ExtResource("1_ugna7")
 
-[node name="ara2_Card" parent="." instance=ExtResource("1_tvbs5")]
-position = Vector2(229, 170)
-scale = Vector2(3, 3)
+[node name="Helpers" type="Node" parent="."]
+script = ExtResource("1_5dum5")
