@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv2cb3m55xmny"]
+
+[ext_resource type="Script" path="res://Pieces/p_Card/Card.gd" id="1_34tga"]
+
+[node name="ara2_Card" type="Area2D"]
+script = ExtResource("1_34tga")
