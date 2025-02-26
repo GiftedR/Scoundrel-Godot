@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://otjqhyeeycmr"]
+[gd_scene load_steps=2 format=3 uid="uid://otjqhyeeycmr"]
+
+[ext_resource type="PackedScene" uid="uid://bv2cb3m55xmny" path="res://Pieces/p_Card.tscn" id="1_tvbs5"]
 
 [node name="nde_Root" type="Node"]
+
+[node name="ara2_Card" parent="." instance=ExtResource("1_tvbs5")]
+position = Vector2(229, 170)
+scale = Vector2(3, 3)
