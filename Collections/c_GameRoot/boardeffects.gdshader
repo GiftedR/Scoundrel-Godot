@@ -2,6 +2,8 @@
 precision highp float;
 #endif
 
+// Slightly modified, but sauce: https://github.com/MrEliptik/godot_ui_components/blob/main/scenes/balatro/shaders/oil.gdshader
+
 shader_type canvas_item;
 uniform sampler2D oil_tint_gradient;
 uniform float oil_speed:hint_range(0.5, 10.0, 0.1) = 10.0;
