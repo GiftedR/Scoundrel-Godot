@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bopg7bsvtdf0u"]
+[gd_scene load_steps=3 format=3 uid="uid://bopg7bsvtdf0u"]
 
 [ext_resource type="Script" path="res://Collections/c_GameRoot/Gameroot.gd" id="1_q13g8"]
+[ext_resource type="PackedScene" uid="uid://bv2cb3m55xmny" path="res://Pieces/p_Card.tscn" id="2_7ul2a"]
 
 [node name="nde2_Game_Root" type="Node2D"]
 script = ExtResource("1_q13g8")
+
+[node name="ara2_Card" parent="." instance=ExtResource("2_7ul2a")]
+position = Vector2(279, 177)
