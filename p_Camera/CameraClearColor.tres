@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://1ksbvsfe4hei"]
+
+[ext_resource type="Shader" path="res://Collections/c_GameRoot/boardeffects.gdshader" id="1_t5ifc"]
+
+[sub_resource type="Gradient" id="Gradient_jxr38"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.1, 0.5, 0.9)
+colors = PackedColorArray(0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v10xl"]
+gradient = SubResource("Gradient_jxr38")
+
+[resource]
+shader = ExtResource("1_t5ifc")
+shader_parameter/oil_speed = 10.0
+shader_parameter/oil_zoom = 9.95
+shader_parameter/oil_brighness = 0.7
+shader_parameter/oil_contrast = 0.9
+shader_parameter/oil_tint_gradient = SubResource("GradientTexture1D_v10xl")
