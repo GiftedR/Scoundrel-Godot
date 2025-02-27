@@ -22,3 +22,14 @@ func load_game(path:String) -> void:
 	_loadedGame = game
 	add_child.call_deferred(game)
 	game.name = "Main Game"
+
+func setFullScreen() -> void:
+	match DisplayServer.window_get_mode():
+		DisplayServer.WINDOW_MODE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		DisplayServer.WINDOW_MODE_WINDOWED:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_fullscreen"):
+		setFullScreen()
