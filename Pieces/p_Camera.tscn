@@ -1,27 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://vvyn6xghoylk"]
 
 [ext_resource type="Material" uid="uid://1ksbvsfe4hei" path="res://p_Camera/CameraClearColor.tres" id="1_6o21a"]
-
-[sub_resource type="Animation" id="Animation_owqbg"]
-resource_name = "default"
-length = 6.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("cvl_Camera/clr_Board:material:shader_parameter/oil_tint_gradient:gradient:colors")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 3.96667, 5, 6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [PackedColorArray(0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1), PackedColorArray(0.498039, 0, 1, 1, 1, 0.498039, 0, 1, 1, 1, 1, 1), PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1), PackedColorArray(1, 0.498039, 0, 1, 0, 0.498039, 0, 1, 1, 1, 1, 1), PackedColorArray(1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1), PackedColorArray(0, 0.498039, 0, 1, 0.498039, 0, 1, 1, 1, 1, 1, 1), PackedColorArray(0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1)]
-}
+[ext_resource type="Script" path="res://Pieces/p_Camera/OilBoardEffects.gd" id="2_ci8ao"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l4ri2"]
-_data = {
-"default": SubResource("Animation_owqbg")
-}
 
 [node name="cmr2_Camera" type="Camera2D"]
 position_smoothing_enabled = true
@@ -38,10 +20,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("2_ci8ao")
 
 [node name="anp2_Cycle" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_l4ri2")
 }
-autoplay = "default"
 speed_scale = 0.01
