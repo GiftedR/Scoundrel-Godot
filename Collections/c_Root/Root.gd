@@ -17,7 +17,7 @@ func load_game(path:String) -> void:
 	if _loadedGame != null:
 		_loadedGame.queue_free()
 		_loadedGame = null
-	
+	add_child(MainCamera.Create())
 	var game:Gameroot = load(path).instantiate()
 	_loadedGame = game
 	add_child.call_deferred(game)

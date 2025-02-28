@@ -1,22 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bopg7bsvtdf0u"]
+[gd_scene load_steps=2 format=3 uid="uid://bopg7bsvtdf0u"]
 
 [ext_resource type="Script" path="res://Collections/c_GameRoot/Gameroot.gd" id="1_q13g8"]
-[ext_resource type="PackedScene" uid="uid://bv2cb3m55xmny" path="res://Pieces/p_Card.tscn" id="2_7ul2a"]
-[ext_resource type="PackedScene" uid="uid://vvyn6xghoylk" path="res://Pieces/p_Camera.tscn" id="3_6q54u"]
 
 [node name="nde2_Game_Root" type="Node2D"]
 script = ExtResource("1_q13g8")
-
-[node name="Camera2D" parent="." instance=ExtResource("3_6q54u")]
-
-[node name="ara2_Card" parent="." instance=ExtResource("2_7ul2a")]
-z_as_relative = false
-position = Vector2(-293, -143)
-
-[node name="ara2_Card2" parent="." instance=ExtResource("2_7ul2a")]
-z_as_relative = false
-position = Vector2(-239, -143)
-
-[node name="ara2_Card3" parent="." instance=ExtResource("2_7ul2a")]
-z_as_relative = false
-position = Vector2(-185, -143)

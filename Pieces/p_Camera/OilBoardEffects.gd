@@ -4,6 +4,7 @@ class_name OilBoard
 static var Instance:OilBoard
 
 var _currentColors:Array[Color] = [Color("0000ff"),Color("ff0000"),Color("ffffff")]
+const _defaultColors:Array[Color] = [Color("0000ff"),Color("ff0000"),Color("ffffff")]
 var _targetColors:Array[Color] = []
 var _trans:bool = false
 
@@ -79,17 +80,17 @@ func set_oil_color(dark_color:Color = _currentColors[0],
 	gradienttexture.set_gradient(gradient)
 	material.set("shader_parameter/oil_tint_gradient", gradienttexture)
 
-static func static_oil_color(dark_color:Color, mid_color:Color, light_color:Color) -> void:
+static func static_oil_color(dark_color:Color = _defaultColors[0], mid_color:Color = _defaultColors[1], light_color:Color = _defaultColors[2]) -> void:
 	Instance.set_oil_color(dark_color, mid_color, light_color)
 
-static func set_oil_transition(dark_color:Color, mid_color:Color, light_color:Color) -> void:
+static func set_oil_transition(dark_color:Color = _defaultColors[0], mid_color:Color = _defaultColors[1], light_color:Color = _defaultColors[2]) -> void:
 	Instance.transition_oil_color(dark_color, mid_color, light_color)
 
-static func set_solid_color(color:Color) -> void:
-	static_oil_color(color,color,Color.WHITE)
+static func set_solid_color(item_color:Color) -> void:
+	static_oil_color(item_color,item_color,Color.WHITE)
 
-static func set_solid_transition(color:Color) -> void:
-	set_oil_transition(color, color, Color.WHITE)
+static func set_solid_transition(item_color:Color) -> void:
+	set_oil_transition(item_color, item_color, Color.WHITE)
 
 static func random_oil_transition() -> void:
 	set_oil_transition(_colors.pick_random(), _colors.pick_random(), _colors.pick_random())
