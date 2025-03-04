@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dypk5arx6eskk"]
+
+[ext_resource type="Shader" path="res://Pieces/p_Glow.gdshader" id="1_wfpct"]
+
+[resource]
+shader = ExtResource("1_wfpct")
+shader_parameter/glow_color = Color(1, 1, 1, 1)
+shader_parameter/glow_power = 2.0
+shader_parameter/glow_shift = 0.2
+shader_parameter/glow_radius = 10.0

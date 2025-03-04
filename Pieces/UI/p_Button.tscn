@@ -1,0 +1,108 @@
+[gd_scene load_steps=13 format=3 uid="uid://bubc4r7tqnohk"]
+
+[ext_resource type="Script" path="res://Pieces/UI/p_Button/UIButton.gd" id="1_8gnjm"]
+[ext_resource type="Texture2D" uid="uid://cigrboyvy20tc" path="res://Pieces/UI/p_Button/ButtonBase.png" id="2_uvqiv"]
+[ext_resource type="Texture2D" uid="uid://dwaxkuu1iqhye" path="res://Pieces/UI/p_Button/ButtonGlow.png" id="3_pcj8k"]
+[ext_resource type="Script" path="res://Pieces/UI/p_Button/AnimatedNinePatchRect.gd" id="4_ofebe"]
+[ext_resource type="Material" uid="uid://dypk5arx6eskk" path="res://Pieces/p_Glow.tres" id="4_peuff"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o58gn"]
+atlas = ExtResource("3_pcj8k")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sl3kk"]
+atlas = ExtResource("3_pcj8k")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvkeh"]
+atlas = ExtResource("3_pcj8k")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f0ak"]
+atlas = ExtResource("3_pcj8k")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0om3"]
+atlas = ExtResource("3_pcj8k")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w51kx"]
+atlas = ExtResource("3_pcj8k")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qdcmr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o58gn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sl3kk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvkeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f0ak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0om3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w51kx")
+}],
+"loop": true,
+"name": &"Glow",
+"speed": 24.0
+}]
+
+[node name="ara2_Button" type="Area2D"]
+script = ExtResource("1_8gnjm")
+
+[node name="clp2_Button" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(11, -9, 11, 9, 9, 11, -9, 11, -11, 9, -11, -9, -9, -11, 9, -11)
+
+[node name="npr2_Button" type="NinePatchRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uvqiv")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
+
+[node name="npr2_Glow" type="NinePatchRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_pcj8k")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
+
+[node name="AnimatedNinePatchRect" type="NinePatchRect" parent="."]
+material = ExtResource("4_peuff")
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_ofebe")
+sprite_frames = SubResource("SpriteFrames_qdcmr")

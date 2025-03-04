@@ -1,16 +1,9 @@
-[gd_scene load_steps=126 format=3 uid="uid://bv2cb3m55xmny"]
+[gd_scene load_steps=125 format=3 uid="uid://bv2cb3m55xmny"]
 
 [ext_resource type="Script" path="res://Pieces/p_Card/Card.gd" id="1_34tga"]
 [ext_resource type="Texture2D" uid="uid://sef027bito12" path="res://Pieces/p_Card/CardBG.png" id="2_gedfn"]
 [ext_resource type="Texture2D" uid="uid://hgjcuvloguh1" path="res://Pieces/p_Card/CardOutline.png" id="2_ng3ww"]
-[ext_resource type="Shader" path="res://Pieces/p_Glow.gdshader" id="3_eapje"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k14rw"]
-shader = ExtResource("3_eapje")
-shader_parameter/glow_color = Color(1, 1, 1, 1)
-shader_parameter/glow_power = 2.0
-shader_parameter/glow_shift = 0.2
-shader_parameter/glow_radius = 10.0
+[ext_resource type="Material" uid="uid://dypk5arx6eskk" path="res://Pieces/p_Glow.tres" id="3_wstvw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ol4nm"]
 atlas = ExtResource("2_ng3ww")
@@ -872,7 +865,7 @@ texture = ExtResource("2_gedfn")
 [node name="asp2_Card_Outline" type="AnimatedSprite2D" parent="."]
 visible = false
 texture_filter = 1
-material = SubResource("ShaderMaterial_k14rw")
+material = ExtResource("3_wstvw")
 sprite_frames = SubResource("SpriteFrames_whe4s")
 animation = &"Glow"
 autoplay = "Glow"

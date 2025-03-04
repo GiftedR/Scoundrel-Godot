@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgqtu2orf15ig"]
+
+[ext_resource type="PackedScene" uid="uid://bv2cb3m55xmny" path="res://Pieces/p_Card.tscn" id="1_2lsf2"]
+
+[node name="ara2_Joker" instance=ExtResource("1_2lsf2")]
