@@ -16,7 +16,6 @@ func _enter_tree() -> void:
 	super._enter_tree()
 
 func _ready() -> void:
-	print(deck)
 	_refresh_board()
 
 func _refresh_board() -> void:
@@ -30,13 +29,13 @@ func _reset_deck() -> void:
 	
 	for rank:int in heartCards:
 		@warning_ignore("narrowing_conversion")
-		deck.append(Card.create(Vector2i((rank * 50) - (heartCards * 50 / 2), -140)).set_data(rank + 1, Card.CardSuit.HEARTS))
+		deck.append(HeartsCard.create(Vector2i((rank * (Card.cardSize.x - 4)) - ((heartCards - 1) * (Card.cardSize.x - 4)) / 2, -((Card.cardSize.y - 4) * 1.5))).set_data(rank + 1, Card.CardSuit.HEARTS))
 	for rank:int in diamondsCards:
 		@warning_ignore("narrowing_conversion")
-		deck.append(Card.create(Vector2i((rank * 50) - (diamondsCards * 50 / 2), -45)).set_data(rank + 1, Card.CardSuit.DIAMONDS))
+		deck.append(DiamondsCard.create(Vector2i((rank * (Card.cardSize.x - 4)) - ((diamondsCards - 1) * (Card.cardSize.x - 4)) / 2, -((Card.cardSize.y - 4) * 0.5))).set_data(rank + 1, Card.CardSuit.DIAMONDS))
 	for rank:int in clubsCards:
 		@warning_ignore("narrowing_conversion")
-		deck.append(Card.create(Vector2i((rank * 50) - (clubsCards * 50 / 2), 45)).set_data(rank + 1, Card.CardSuit.CLUBS))
+		deck.append(ClubsCard.create(Vector2i((rank * (Card.cardSize.x - 4)) - ((clubsCards - 1) * (Card.cardSize.x - 4)) / 2, ((Card.cardSize.y - 4) * 0.5))).set_data(rank + 1, Card.CardSuit.CLUBS))
 	for rank:int in spadesCards:
 		@warning_ignore("narrowing_conversion")
-		deck.append(Card.create(Vector2i((rank * 50) - (clubsCards * 50 / 2), 140)).set_data(rank + 1, Card.CardSuit.SPADES))
+		deck.append(SpadesCard.create(Vector2i((rank * (Card.cardSize.x - 4)) - ((spadesCards - 1) * (Card.cardSize.x - 4)) / 2, ((Card.cardSize.y - 4) * 1.5))).set_data(rank + 1, Card.CardSuit.SPADES))

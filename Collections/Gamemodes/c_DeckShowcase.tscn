@@ -5,3 +5,6 @@
 
 [node name="nde2_Game_Root" instance=ExtResource("1_ah1an")]
 script = ExtResource("2_6h21b")
+
+[node name="cvl_Game_UI" parent="." index="0"]
+visible = false

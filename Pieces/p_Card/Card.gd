@@ -12,31 +12,35 @@ enum CardSuit{
 static func create(startingposition:Vector2i = Vector2i.ZERO) -> Card:
 	return load("res://Pieces/p_Card.tscn").instantiate().set_starting_pos(startingposition)
 
+static var hoveredCard:Card
+
+const cardSize:Vector2i = Vector2i(50, 70)
+
 @export_range(1, 13) var rank:int = 1
 @export var suit:CardSuit = CardSuit.HEARTS
 @export var targetPosition:Vector2 = Vector2.ZERO
 
 @onready var _outline: AnimatedSprite2D = $asp2_Card_Outline
 @onready var _cardbg:Sprite2D = $spe2_Card_Body
+@onready var _tooltip:PanelContainer = $plc2_Tooltip
 
 var _startingpos:Vector2i = Vector2i.ZERO
 
 func _enter_tree() -> void:
-	mouse_entered.connect(func() -> void:
-		_outline.visible = true
-	)
+	mouse_entered.connect(_hover)
 	
-	mouse_exited.connect(func() -> void:
-		_outline.visible = false
-	)
+	mouse_exited.connect(_unhover)
 	
 	position = _startingpos
 
 func _ready() -> void:
 	_outline.visible = false
+	_tooltip.visible = false
 	
-	#await get_tree().create_timer(randf_range(0, 5)).timeout
-	#$anp_Idle.play("Idle")
+	input_event.connect(func(_vp:Node, event:InputEvent, _shpidx:int) -> void:
+		if event is InputEventMouseMotion:
+			_hover()
+	)
 
 func _physics_process(delta: float) -> void:
 	_set_card_texture(rank, suit)
@@ -66,10 +70,50 @@ func set_transition_pos(pos:Vector2i) -> Card:
 	return self
 
 func draw(tile:Vector2i) -> void:
-	set_transition_pos((tile * Vector2i(50, 70)) + Vector2i(25, 35))
+	set_transition_pos((tile * cardSize) + cardSize / 2)
 
 func discard() -> void:
 	pass
 
 func _to_string() -> String:
-	return "Card: %s %s" % [rank, suit]
+	return "Card: %s of %s" % [rank, suit_name(suit)]
+
+static func suit_name(cardsuit:int) -> String:
+	match (cardsuit):
+		0:
+			return "Hearts"
+		1:
+			return "Diamonds"
+		2:
+			return "Clubs"
+		3:
+			return "Spades"
+		4:
+			return "Jokers"
+		_:
+			return "%s" % cardsuit
+
+static func rank_name(cardrank:int) -> String:
+	match (cardrank):
+		1:
+			return "Ace"
+		11:
+			return "Jack"
+		12:
+			return "Queen"
+		13:
+			return "King"
+		_:
+			return "%s" % cardrank
+
+func _hover() -> void:
+	if hoveredCard == null:
+		_outline.visible = true
+		_tooltip.visible = true
+		hoveredCard = self
+
+func _unhover() -> void:
+	if hoveredCard != null:
+		_outline.visible = false
+		_tooltip.visible = false
+		hoveredCard = null

@@ -1,10 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bopg7bsvtdf0u"]
+[gd_scene load_steps=8 format=3 uid="uid://bopg7bsvtdf0u"]
 
 [ext_resource type="Script" path="res://Collections/c_GameRoot/Gameroot.gd" id="1_q13g8"]
-[ext_resource type="FontFile" uid="uid://bhpixg8iymckn" path="res://Pieces/UI/Fonts.png" id="2_m8w81"]
-
-[sub_resource type="Theme" id="Theme_j5uut"]
-default_font = ExtResource("2_m8w81")
+[ext_resource type="Theme" uid="uid://6sie427rwvcq" path="res://Pieces/UI/p_Theme.tres" id="2_ogwbj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nkia5"]
 font_size = 32
@@ -143,7 +140,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_j5uut")
+theme = ExtResource("2_ogwbj")
 
 [node name="lbl2_Health" type="Label" parent="cvl_Game_UI/ctr2_Game_UI"]
 layout_mode = 1
