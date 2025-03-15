@@ -2,4 +2,4 @@
 
 [ext_resource type="PackedScene" uid="uid://bopg7bsvtdf0u" path="res://Collections/c_GameRoot.tscn" id="1_f6ywp"]
 
-[node name="nde2_Game_Root" instance=ExtResource("1_f6ywp")]
+[node name="nde2_Modification_Root" instance=ExtResource("1_f6ywp")]

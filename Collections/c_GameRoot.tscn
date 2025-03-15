@@ -1,10 +1,186 @@
-[gd_scene load_steps=3 format=3 uid="uid://bopg7bsvtdf0u"]
+[gd_scene load_steps=9 format=3 uid="uid://bopg7bsvtdf0u"]
 
 [ext_resource type="Script" path="res://Collections/c_GameRoot/Gameroot.gd" id="1_q13g8"]
-[ext_resource type="PackedScene" uid="uid://bubc4r7tqnohk" path="res://Pieces/UI/p_Button.tscn" id="2_m555s"]
+[ext_resource type="FontFile" uid="uid://bhpixg8iymckn" path="res://Pieces/UI/Fonts.png" id="2_m8w81"]
+
+[sub_resource type="Theme" id="Theme_j5uut"]
+default_font = ExtResource("2_m8w81")
+
+[sub_resource type="LabelSettings" id="LabelSettings_nkia5"]
+font_size = 32
+font_color = Color(0.988235, 0.498039, 0.498039, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x52o1"]
+font_size = 24
+font_color = Color(0.498039, 0.988235, 0.498039, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="Animation" id="Animation_r1bob"]
+resource_name = "Idle"
+length = 5.0
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ctr2_Game_UI/lbl2_Health:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.25, 3.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0174533, -0.0872665]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ctr2_Game_UI/lbl2_Health:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.25, 3.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.95, 0.95), Vector2(1.05, 1.05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ctr2_Game_UI/lbl2_Dungeon:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.25, 3.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.0174533, 0.0872665]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ctr2_Game_UI/lbl2_Dungeon:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.25, 3.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.95, 0.95), Vector2(1.05, 1.05)]
+}
+
+[sub_resource type="Animation" id="Animation_mppdd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ctr2_Game_UI/lbl2_Health:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ctr2_Game_UI/lbl2_Health:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ctr2_Game_UI/lbl2_Dungeon:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ctr2_Game_UI/lbl2_Dungeon:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nfd3q"]
+_data = {
+"Idle": SubResource("Animation_r1bob"),
+"RESET": SubResource("Animation_mppdd")
+}
 
 [node name="nde2_Game_Root" type="Node2D"]
 script = ExtResource("1_q13g8")
 
-[node name="ara2_Button" parent="." instance=ExtResource("2_m555s")]
-position = Vector2(66, 59)
+[node name="cvl_Game_UI" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="ctr2_Game_UI" type="Control" parent="cvl_Game_UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_j5uut")
+
+[node name="lbl2_Health" type="Label" parent="cvl_Game_UI/ctr2_Game_UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+pivot_offset = Vector2(77, 16)
+text = "HP: 20"
+label_settings = SubResource("LabelSettings_nkia5")
+vertical_alignment = 2
+
+[node name="lbl2_Dungeon" type="Label" parent="cvl_Game_UI/ctr2_Game_UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(77, 25)
+text = "Room: 00
+Deck: 44"
+label_settings = SubResource("LabelSettings_x52o1")
+horizontal_alignment = 3
+vertical_alignment = 2
+
+[node name="anp_Idle_UI" type="AnimationPlayer" parent="cvl_Game_UI"]
+libraries = {
+"": SubResource("AnimationLibrary_nfd3q")
+}
+autoplay = "Idle"
+speed_scale = 0.45
+
+[node name="nde2_Board" type="Node2D" parent="."]

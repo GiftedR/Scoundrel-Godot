@@ -1,8 +1,9 @@
-[gd_scene load_steps=125 format=3 uid="uid://bv2cb3m55xmny"]
+[gd_scene load_steps=129 format=3 uid="uid://bv2cb3m55xmny"]
 
 [ext_resource type="Script" path="res://Pieces/p_Card/Card.gd" id="1_34tga"]
 [ext_resource type="Texture2D" uid="uid://sef027bito12" path="res://Pieces/p_Card/CardBG.png" id="2_gedfn"]
 [ext_resource type="Texture2D" uid="uid://hgjcuvloguh1" path="res://Pieces/p_Card/CardOutline.png" id="2_ng3ww"]
+[ext_resource type="Texture2D" uid="uid://b2slvhqgdcxnk" path="res://Pieces/p_Card/Card-Sheet.png" id="3_tbgs4"]
 [ext_resource type="Material" uid="uid://dypk5arx6eskk" path="res://Pieces/p_Glow.tres" id="3_wstvw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ol4nm"]
@@ -846,6 +847,68 @@ animations = [{
 "speed": 60.0
 }]
 
+[sub_resource type="Animation" id="Animation_p4qf2"]
+resource_name = "Idle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.0872665, 0.0872665, -0.0872665]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.01, 1.01), Vector2(0.99, 0.99), Vector2(1.01, 1.01)]
+}
+
+[sub_resource type="Animation" id="Animation_1l66l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_syhen"]
+_data = {
+"Idle": SubResource("Animation_p4qf2"),
+"RESET": SubResource("Animation_1l66l")
+}
+
 [node name="ara2_Card" type="Area2D"]
 script = ExtResource("1_34tga")
 
@@ -858,9 +921,11 @@ texture_filter = 1
 texture = ExtResource("2_gedfn")
 offset = Vector2(4, 4)
 
-[node name="spe2_Card_Bg" type="Sprite2D" parent="."]
+[node name="spe2_Card_Body" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_gedfn")
+texture = ExtResource("3_tbgs4")
+hframes = 5
+vframes = 13
 
 [node name="asp2_Card_Outline" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -870,3 +935,10 @@ sprite_frames = SubResource("SpriteFrames_whe4s")
 animation = &"Glow"
 autoplay = "Glow"
 speed_scale = 0.5
+
+[node name="anp_Idle" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_syhen")
+}
+autoplay = "Idle"
+speed_scale = 0.45

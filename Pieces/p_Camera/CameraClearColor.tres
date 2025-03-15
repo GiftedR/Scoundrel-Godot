@@ -12,8 +12,8 @@ gradient = SubResource("Gradient_jxr38")
 
 [resource]
 shader = ExtResource("1_t5ifc")
-shader_parameter/oil_speed = 10.0
-shader_parameter/oil_zoom = 9.95
+shader_parameter/oil_speed = 32.0
+shader_parameter/oil_zoom = 3.95
 shader_parameter/oil_brighness = 0.7
-shader_parameter/oil_contrast = 0.9
+shader_parameter/oil_contrast = 0.6
 shader_parameter/oil_tint_gradient = SubResource("GradientTexture1D_v10xl")

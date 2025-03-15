@@ -5,6 +5,7 @@
 
 [node name="nde_Root" type="Node"]
 script = ExtResource("1_ugna7")
+GameToLoad = "res://Collections/Gamemodes/c_Standard.tscn"
 
 [node name="Helpers" type="Node" parent="."]
 script = ExtResource("1_5dum5")

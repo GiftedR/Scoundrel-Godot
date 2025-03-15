@@ -3,7 +3,7 @@ class_name Root
 
 static var Instance:Root
 
-@export_dir var GameToLoad:String = "res://Collections/c_GameRoot.tscn"
+@export_file("*.tscn") var GameToLoad:String = "res://Collections/c_GameRoot.tscn"
 
 var _loadedGame:Gameroot
 
