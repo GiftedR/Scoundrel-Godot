@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://sltbxqo40o4x"]
 
 [ext_resource type="PackedScene" uid="uid://bopg7bsvtdf0u" path="res://Collections/c_GameRoot.tscn" id="1_ah1an"]
-[ext_resource type="Script" path="res://Collections/Gamemodes/c_DeckShowcase/DeckShowcase.gd" id="2_6h21b"]
+[ext_resource type="Script" uid="uid://c3q3dlyrb2rjx" path="res://Collections/Gamemodes/c_DeckShowcase/DeckShowcase.gd" id="2_6h21b"]
 
 [node name="nde2_Game_Root" instance=ExtResource("1_ah1an")]
 script = ExtResource("2_6h21b")

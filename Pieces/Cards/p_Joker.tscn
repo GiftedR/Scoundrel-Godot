@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmov8ebnk57s5"]
 
 [ext_resource type="PackedScene" uid="uid://bv2cb3m55xmny" path="res://Pieces/p_Card.tscn" id="1_5dctn"]
-[ext_resource type="Script" path="res://Pieces/Cards/p_Joker/Joker.gd" id="2_ha15k"]
+[ext_resource type="Script" uid="uid://l05efho4k15h" path="res://Pieces/Cards/p_Joker/Joker.gd" id="2_ha15k"]
 
 [node name="ara2_Card_Joker" instance=ExtResource("1_5dctn")]
 script = ExtResource("2_ha15k")

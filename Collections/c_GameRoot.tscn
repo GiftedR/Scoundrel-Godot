@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bopg7bsvtdf0u"]
 
-[ext_resource type="Script" path="res://Collections/c_GameRoot/Gameroot.gd" id="1_q13g8"]
+[ext_resource type="Script" uid="uid://lllyx3tr7dvm" path="res://Collections/c_GameRoot/Gameroot.gd" id="1_q13g8"]
 [ext_resource type="Theme" uid="uid://6sie427rwvcq" path="res://Pieces/UI/p_Theme.tres" id="2_ogwbj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nkia5"]
@@ -122,8 +122,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nfd3q"]
 _data = {
-"Idle": SubResource("Animation_r1bob"),
-"RESET": SubResource("Animation_mppdd")
+&"Idle": SubResource("Animation_r1bob"),
+&"RESET": SubResource("Animation_mppdd")
 }
 
 [node name="nde2_Game_Root" type="Node2D"]

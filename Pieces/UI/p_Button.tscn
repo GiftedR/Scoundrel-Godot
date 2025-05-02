@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://bubc4r7tqnohk"]
 
-[ext_resource type="Script" path="res://Pieces/UI/p_Button/UIButton.gd" id="1_8gnjm"]
+[ext_resource type="Script" uid="uid://cf5nxjiknk2vv" path="res://Pieces/UI/p_Button/UIButton.gd" id="1_8gnjm"]
 [ext_resource type="Texture2D" uid="uid://cigrboyvy20tc" path="res://Pieces/UI/p_Button/ButtonBase.png" id="2_uvqiv"]
 [ext_resource type="Texture2D" uid="uid://dwaxkuu1iqhye" path="res://Pieces/UI/p_Button/ButtonGlow.png" id="3_pcj8k"]
-[ext_resource type="Script" path="res://Pieces/UI/p_Button/AnimatedNinePatchRect.gd" id="4_ofebe"]
+[ext_resource type="Script" uid="uid://ep4otqaudt15" path="res://Pieces/UI/p_Button/AnimatedNinePatchRect.gd" id="4_ofebe"]
 [ext_resource type="Material" uid="uid://dypk5arx6eskk" path="res://Pieces/p_Glow.tres" id="4_peuff"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o58gn"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c15c12pmln7ju"]
 
 [ext_resource type="PackedScene" uid="uid://bv2cb3m55xmny" path="res://Pieces/p_Card.tscn" id="1_yosbx"]
-[ext_resource type="Script" path="res://Pieces/Cards/p_Spades/Spades.gd" id="2_lv1ox"]
+[ext_resource type="Script" uid="uid://cl0dncfq1klfj" path="res://Pieces/Cards/p_Spades/Spades.gd" id="2_lv1ox"]
 
 [node name="ara2_Card_Spades" instance=ExtResource("1_yosbx")]
 script = ExtResource("2_lv1ox")

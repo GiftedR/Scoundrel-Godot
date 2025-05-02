@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ct6ygh2qyh3o6"]
 
 [ext_resource type="PackedScene" uid="uid://bopg7bsvtdf0u" path="res://Collections/c_GameRoot.tscn" id="1_86d5d"]
-[ext_resource type="Script" path="res://Collections/Gamemodes/c_Standard/StandardGame.gd" id="2_offgh"]
+[ext_resource type="Script" uid="uid://cg0k3pytwlrh6" path="res://Collections/Gamemodes/c_Standard/StandardGame.gd" id="2_offgh"]
 
 [node name="nde2_Standard_Root" instance=ExtResource("1_86d5d")]
 script = ExtResource("2_offgh")
