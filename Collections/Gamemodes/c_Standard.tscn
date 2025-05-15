@@ -1,7 +1,127 @@
-[gd_scene load_steps=3 format=3 uid="uid://ct6ygh2qyh3o6"]
+[gd_scene load_steps=6 format=3 uid="uid://ct6ygh2qyh3o6"]
 
 [ext_resource type="PackedScene" uid="uid://bopg7bsvtdf0u" path="res://Collections/c_GameRoot.tscn" id="1_86d5d"]
-[ext_resource type="Script" path="res://Collections/Gamemodes/c_Standard/StandardGame.gd" id="2_offgh"]
+[ext_resource type="Script" uid="uid://d4ey5kpbc6qu6" path="res://Collections/Gamemodes/c_Standard/StandardGame.gd" id="2_offgh"]
+
+[sub_resource type="Animation" id="Animation_84v3f"]
+resource_name = "Default"
+length = 0.1333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cvl_Game_UI/ctr2_Game_UI/ctr2_Run/ccc2_Info/ctr2_Shaky/lbl2_Cant:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-90, -8), Vector2(-90, -9), Vector2(-90, -8), Vector2(-90, -7), Vector2(-90, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cvl_Game_UI/ctr2_Game_UI/ctr2_Run/ccc2_Info/ctr2_Shaky/lbl2_Cant:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0872665, 0.0, 0.0872665, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_isksg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cvl_Game_UI/ctr2_Game_UI/ctr2_Run/ccc2_Info/ctr2_Shaky/lbl2_Cant:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-90, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cvl_Game_UI/ctr2_Game_UI/ctr2_Run/ccc2_Info/ctr2_Shaky/lbl2_Cant:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_isksg"]
+_data = {
+&"Default": SubResource("Animation_84v3f"),
+&"RESET": SubResource("Animation_isksg")
+}
 
 [node name="nde2_Standard_Root" instance=ExtResource("1_86d5d")]
 script = ExtResource("2_offgh")
+
+[node name="btn2_Run" type="Button" parent="cvl_Game_UI/ctr2_Game_UI" index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.764
+anchor_right = 0.5
+anchor_bottom = 0.764
+offset_left = -22.0
+offset_top = -24.04
+offset_right = 22.0
+offset_bottom = -0.0400085
+grow_horizontal = 2
+grow_vertical = 0
+text = "Run"
+
+[node name="ctr2_Run" type="Control" parent="cvl_Game_UI/ctr2_Game_UI" index="3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="clr2_Color" type="ColorRect" parent="cvl_Game_UI/ctr2_Game_UI/ctr2_Run" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.25098)
+
+[node name="ccc2_Info" type="CenterContainer" parent="cvl_Game_UI/ctr2_Game_UI/ctr2_Run" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ctr2_Shaky" type="Control" parent="cvl_Game_UI/ctr2_Game_UI/ctr2_Run/ccc2_Info" index="0"]
+layout_mode = 2
+
+[node name="lbl2_Cant" type="Label" parent="cvl_Game_UI/ctr2_Game_UI/ctr2_Run/ccc2_Info/ctr2_Shaky" index="0"]
+layout_mode = 2
+offset_left = -90.0
+offset_top = -8.0
+offset_right = 90.0
+offset_bottom = 8.0
+pivot_offset = Vector2(90, 8)
+text = "YOU CANT RUN..."
+
+[node name="anp2_Cant_run" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_isksg")
+}
+autoplay = "Default"

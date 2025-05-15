@@ -15,6 +15,7 @@ static func create(startingposition:Vector2i = Vector2i.ZERO) -> Card:
 static var hoveredCard:Card
 
 const cardSize:Vector2i = Vector2i(50, 70)
+var is_drawn:bool = false
 
 @export_range(1, 13) var rank:int = 1
 @export var suit:CardSuit = CardSuit.HEARTS
@@ -69,8 +70,15 @@ func set_transition_pos(pos:Vector2i) -> Card:
 	targetPosition = pos
 	return self
 
-func draw(tile:Vector2i) -> void:
+func draw(tile:Vector2i) -> Card:
 	set_transition_pos((tile * cardSize) + cardSize / 2)
+	is_drawn = true
+	return self
+
+func return_card(startingposition:Vector2i) -> Card:
+	draw(startingposition)
+	is_drawn = false
+	return self
 
 func discard() -> void:
 	pass

@@ -1,6 +1,39 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://6sie427rwvcq"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://6sie427rwvcq"]
 
 [ext_resource type="FontFile" uid="uid://bhpixg8iymckn" path="res://Pieces/UI/Fonts.png" id="1_02hx6"]
+[ext_resource type="Texture2D" uid="uid://cigrboyvy20tc" path="res://Pieces/UI/p_Button/ButtonBase.png" id="1_22uhf"]
+[ext_resource type="Texture2D" uid="uid://xytgnu3ntqxh" path="res://Pieces/UI/p_Button/ButtonPress.png" id="2_78ey0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fasx2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fasx2"]
+texture = ExtResource("1_22uhf")
+texture_margin_left = 9.0
+texture_margin_top = 9.0
+texture_margin_right = 9.0
+texture_margin_bottom = 9.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78ey0"]
+texture = ExtResource("1_22uhf")
+texture_margin_left = 9.0
+texture_margin_top = 9.0
+texture_margin_right = 9.0
+texture_margin_bottom = 9.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ar4w"]
+texture = ExtResource("2_78ey0")
+texture_margin_left = 9.0
+texture_margin_top = 9.0
+texture_margin_right = 9.0
+texture_margin_bottom = 9.0
 
 [resource]
 default_font = ExtResource("1_02hx6")
+Button/colors/font_color = Color(0.2, 0.2, 0.2, 1)
+Button/colors/font_focus_color = Color(0.2, 0.2, 0.2, 1)
+Button/colors/font_hover_color = Color(0.266667, 0.266667, 0.266667, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_fasx2")
+Button/styles/hover = SubResource("StyleBoxTexture_fasx2")
+Button/styles/normal = SubResource("StyleBoxTexture_78ey0")
+Button/styles/pressed = SubResource("StyleBoxTexture_8ar4w")
