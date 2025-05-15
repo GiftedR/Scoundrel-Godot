@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://otjqhyeeycmr"]
 
-[ext_resource type="Script" path="res://Pieces/p_Helpers.gd" id="1_5dum5"]
-[ext_resource type="Script" path="res://Collections/c_Root/Root.gd" id="1_ugna7"]
+[ext_resource type="Script" uid="uid://c3xx724qahw25" path="res://Pieces/p_Helpers.gd" id="1_5dum5"]
+[ext_resource type="Script" uid="uid://cj5imy83p85un" path="res://Collections/c_Root/Root.gd" id="1_ugna7"]
 
 [node name="nde_Root" type="Node"]
 script = ExtResource("1_ugna7")

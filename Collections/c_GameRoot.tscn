@@ -126,7 +126,7 @@ _data = {
 "RESET": SubResource("Animation_mppdd")
 }
 
-[node name="nde2_Game_Root" type="Node2D"]
+[node name="nde2_Game_Root" instance=ExtResource("1_0vlc5")]
 script = ExtResource("1_q13g8")
 
 [node name="cvl_Game_UI" type="CanvasLayer" parent="."]

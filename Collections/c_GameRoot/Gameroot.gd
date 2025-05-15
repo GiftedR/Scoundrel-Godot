@@ -1,7 +1,6 @@
-extends Node2D
+extends ModeRoot
 class_name Gameroot
 
-static var Instance:Gameroot
 @onready var board:Node = $nde2_Board
 
 var deckSize:int

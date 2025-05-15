@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://vvyn6xghoylk"]
 
 [ext_resource type="Material" uid="uid://1ksbvsfe4hei" path="res://Pieces/p_Camera/CameraClearColor.tres" id="1_6o21a"]
-[ext_resource type="Script" path="res://Pieces/p_Camera/Camera.gd" id="1_bni7x"]
-[ext_resource type="Script" path="res://Pieces/p_Camera/OilBoardEffects.gd" id="2_ci8ao"]
+[ext_resource type="Script" uid="uid://g1y3upckc4jy" path="res://Pieces/p_Camera/Camera.gd" id="1_bni7x"]
+[ext_resource type="Script" uid="uid://d1jwhkywqfgqe" path="res://Pieces/p_Camera/OilBoardEffects.gd" id="2_ci8ao"]
 
 [sub_resource type="Gradient" id="Gradient_a8xny"]
 interpolation_mode = 2
