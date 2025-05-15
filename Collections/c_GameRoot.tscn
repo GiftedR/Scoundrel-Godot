@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bopg7bsvtdf0u"]
+[gd_scene load_steps=9 format=3 uid="uid://bopg7bsvtdf0u"]
 
-[ext_resource type="Script" path="res://Collections/c_GameRoot/Gameroot.gd" id="1_q13g8"]
+[ext_resource type="PackedScene" uid="uid://f3cmy470txlb" path="res://Collections/c_ModeRoot.tscn" id="1_0vlc5"]
+[ext_resource type="Script" uid="uid://ckbdkyfn5gw1d" path="res://Collections/c_GameRoot/Gameroot.gd" id="1_q13g8"]
 [ext_resource type="Theme" uid="uid://6sie427rwvcq" path="res://Pieces/UI/p_Theme.tres" id="2_ogwbj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nkia5"]
@@ -122,17 +123,17 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nfd3q"]
 _data = {
-"Idle": SubResource("Animation_r1bob"),
-"RESET": SubResource("Animation_mppdd")
+&"Idle": SubResource("Animation_r1bob"),
+&"RESET": SubResource("Animation_mppdd")
 }
 
 [node name="nde2_Game_Root" instance=ExtResource("1_0vlc5")]
 script = ExtResource("1_q13g8")
 
-[node name="cvl_Game_UI" type="CanvasLayer" parent="."]
+[node name="cvl_Game_UI" type="CanvasLayer" parent="." index="0"]
 layer = 128
 
-[node name="ctr2_Game_UI" type="Control" parent="cvl_Game_UI"]
+[node name="ctr2_Game_UI" type="Control" parent="cvl_Game_UI" index="0"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -142,7 +143,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("2_ogwbj")
 
-[node name="lbl2_Health" type="Label" parent="cvl_Game_UI/ctr2_Game_UI"]
+[node name="lbl2_Health" type="Label" parent="cvl_Game_UI/ctr2_Game_UI" index="0"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -155,7 +156,7 @@ text = "HP: 20"
 label_settings = SubResource("LabelSettings_nkia5")
 vertical_alignment = 2
 
-[node name="lbl2_Dungeon" type="Label" parent="cvl_Game_UI/ctr2_Game_UI"]
+[node name="lbl2_Dungeon" type="Label" parent="cvl_Game_UI/ctr2_Game_UI" index="1"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -173,11 +174,11 @@ label_settings = SubResource("LabelSettings_x52o1")
 horizontal_alignment = 3
 vertical_alignment = 2
 
-[node name="anp_Idle_UI" type="AnimationPlayer" parent="cvl_Game_UI"]
+[node name="anp_Idle_UI" type="AnimationPlayer" parent="cvl_Game_UI" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_nfd3q")
+&"": SubResource("AnimationLibrary_nfd3q")
 }
 autoplay = "Idle"
 speed_scale = 0.45
 
-[node name="nde2_Board" type="Node2D" parent="."]
+[node name="nde2_Board" type="Node2D" parent="." index="1"]

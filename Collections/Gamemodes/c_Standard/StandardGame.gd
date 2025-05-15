@@ -14,7 +14,8 @@ func _init() -> void:
 	_reset_deck()
 	deckSize = 44
 	remainingDraws = 44
-	deck.shuffle()
+	for i:int in 7:
+		deck.shuffle()
 	new_room()
 
 func _enter_tree() -> void:
