@@ -1,23 +1,26 @@
-[gd_scene load_steps=13 format=3 uid="uid://ct6ygh2qyh3o6"]
+[gd_scene load_steps=14 format=3 uid="uid://ct6ygh2qyh3o6"]
 
 [ext_resource type="PackedScene" uid="uid://bopg7bsvtdf0u" path="res://Collections/c_GameRoot.tscn" id="1_86d5d"]
 [ext_resource type="Script" uid="uid://d4ey5kpbc6qu6" path="res://Collections/Gamemodes/c_Standard/StandardGame.gd" id="2_offgh"]
-[ext_resource type="Shader" uid="uid://gcyrymilcbww" path="res://Collections/c_GameRoot/boardeffects.gdshader" id="3_isksg"]
+[ext_resource type="Shader" uid="uid://ss8qv7owk6qy" path="res://Collections/c_GameRoot/boardeffects.gdshader" id="3_isksg"]
 
-[sub_resource type="Gradient" id="Gradient_isksg"]
-colors = PackedColorArray(0, 1, 0, 1, 0, 0.25098, 0, 1)
+[sub_resource type="Gradient" id="Gradient_ohs2a"]
+colors = PackedColorArray(1, 0, 0, 1, 0.25098, 0, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ohs2a"]
-gradient = SubResource("Gradient_isksg")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yiesy"]
+gradient = SubResource("Gradient_ohs2a")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ohs2a"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7hmxr"]
 shader = ExtResource("3_isksg")
-shader_parameter/oil_tint_gradient = SubResource("GradientTexture1D_ohs2a")
+shader_parameter/oil_tint_gradient = SubResource("GradientTexture1D_yiesy")
 shader_parameter/oil_opacity = 0.51
 shader_parameter/oil_speed = 0.5
 shader_parameter/oil_zoom = 5.0
 shader_parameter/oil_brighness = 1.0
 shader_parameter/oil_contrast = 1.0
+
+[sub_resource type="Gradient" id="Gradient_isksg"]
+colors = PackedColorArray(0, 1, 0, 1, 0, 0.25098, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_isksg"]
 gradient = SubResource("Gradient_isksg")
@@ -148,7 +151,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="clr2_Color" type="ColorRect" parent="cvl_Game_UI/ctr2_Game_UI/ctr2_Run" index="0"]
-material = SubResource("ShaderMaterial_ohs2a")
+material = SubResource("ShaderMaterial_7hmxr")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
