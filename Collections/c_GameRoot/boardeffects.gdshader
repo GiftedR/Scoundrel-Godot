@@ -6,6 +6,7 @@ precision highp float;
 
 shader_type canvas_item;
 uniform sampler2D oil_tint_gradient;
+uniform float oil_opacity:hint_range(0.01, 1.0, 0.05) = 1.0;
 uniform float oil_speed:hint_range(0.5, 32.0, 0.1) = 10.0;
 uniform float oil_zoom:hint_range(0.25, 32.0, 0.1) = 5.0;
 uniform float oil_brighness:hint_range(0.0, 3.0, 0.1) = 1.0;
@@ -118,6 +119,7 @@ void mainImage( out vec4 fragColor, in vec2 uv, in bool tint)
 	//vec2 uv = fragCoord/resolution.x;
 	float shade = pattern(uv * oil_zoom) * oil_contrast;
 	fragColor = (!tint ? vec4(colormap(shade).rgb, 1.0) : vec4(tinted_color_map(shade).rgb, 1.0)) * vec4(vec3(oil_brighness), 1.0);
+	fragColor.a = oil_opacity;
 }
 
 

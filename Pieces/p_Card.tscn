@@ -907,8 +907,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_syhen"]
 _data = {
-"Idle": SubResource("Animation_p4qf2"),
-"RESET": SubResource("Animation_1l66l")
+&"Idle": SubResource("Animation_p4qf2"),
+&"RESET": SubResource("Animation_1l66l")
 }
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hm0yc"]
@@ -949,7 +949,7 @@ speed_scale = 0.5
 
 [node name="anp_Idle" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_syhen")
+&"": SubResource("AnimationLibrary_syhen")
 }
 autoplay = "Idle"
 speed_scale = 0.45

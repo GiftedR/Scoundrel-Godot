@@ -15,8 +15,11 @@ var spadesCards:int = 13 # 13
 
 func _init() -> void:
 	super()
+	diamondsCards = 0
+	clubsCards = 0
+	spadesCards = 0
 	_reset_deck()
-	deckSize = 44
+	# deckSize = 44
 	remainingDraws = 44
 	for i:int in 7:
 		deck.shuffle()
@@ -26,10 +29,26 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	$cvl_Game_UI/ctr2_Game_UI/btn2_Run.pressed.connect(run_room)
+	$cvl_Game_UI/ctr2_Game_UI/ctr2_Win/ccc2_Info/ctr2_Victory/btn2_New_Game.pressed.connect( func() -> void: win())
+	$cvl_Game_UI/ctr2_Game_UI/ctr2_Win/ccc2_Info/ctr2_Victory/btn2_Quit.pressed.connect(get_tree().quit)
 	$cvl_Game_UI/ctr2_Game_UI/ctr2_Run.visible = false
+	$cvl_Game_UI/ctr2_Game_UI/ctr2_Win.visible = false
 	_refresh_board()
-	# print(deck)
 	new_room()
+
+func _physics_process(delta: float) -> void:
+	super._physics_process(delta)
+	Helpers.distinct_print(deck)
+	if room.size() < 2 && deck.size() > 0:
+		refill_room()
+		print("REFILL!")
+	for i:int in room.size():
+		if i < room.size() && room[i] == null:
+			room.pop_at(i)
+	if room.size() == 0 && deck.size() == 0:
+		$cvl_Game_UI/ctr2_Game_UI/ctr2_Win.visible = true
+		
+		# win()
 
 func _refresh_board() -> void:
 	if board != null && board.get_child_count() > 0:
@@ -49,15 +68,11 @@ func _reset_deck() -> void:
 	for rank:int in spadesCards:
 		deck.append(SpadesCard.create(Vector2i(deckstartingpos)).set_data(rank + 1, (0 as Card.CardSuit)))
 
-func new_room(didrun:bool = false) -> void:
-	if !didrun:
-		remainingDraws -= 4
-		roomNumber += 1
-	
-	room.append(deck.pop_front().draw(Vector2i(-1, -1)))
-	room.append(deck.pop_front().draw(Vector2i(0, -1)))
-	room.append(deck.pop_front().draw(Vector2i(-1, 0)))
-	room.append(deck.pop_front().draw(Vector2i(0, 0)))
+func new_room() -> void:
+	room.append(deck.pop_front().draw(Vector2i(-1, -1)).with_draw_id(0))
+	room.append(deck.pop_front().draw(Vector2i(0, -1)).with_draw_id(1))
+	room.append(deck.pop_front().draw(Vector2i(-1, 0)).with_draw_id(2))
+	room.append(deck.pop_front().draw(Vector2i(0, 0)).with_draw_id(3))
 	# deck[1].draw(Vector2i(-1, -1))
 	# deck[1].draw(Vector2i(0, -1))
 	# deck[2].draw(Vector2i(-1, 0))
@@ -74,7 +89,19 @@ func run_room() -> void:
 	deck.append(room.pop_front().return_card(deckstartingpos))
 	deck.append(room.pop_front().return_card(deckstartingpos))
 	run_concurrent_count = 1
-	new_room(true)
+	new_room()
 
 func refill_room() -> void:
+	var sizecount:int = deck.size()
+
 	run_concurrent_count = 0
+	remainingDraws = deck.size()
+	roomNumber += 1
+	room[0].set_transition_pos(Vector2i(-1, -1), true).with_draw_id(0)
+	print("SIZE -> ", deck.size())
+	if sizecount >= 1:
+		room.append(deck.pop_front().draw(Vector2i(0, -1)).with_draw_id(1))
+	if sizecount >= 2:
+		room.append(deck.pop_front().draw(Vector2i(-1, 0)).with_draw_id(2))
+	if sizecount >= 3:
+		room.append(deck.pop_front().draw(Vector2i(0, 0)).with_draw_id(3))

@@ -15,7 +15,9 @@ static func create(startingposition:Vector2i = Vector2i.ZERO) -> Card:
 static var hoveredCard:Card
 
 const cardSize:Vector2i = Vector2i(50, 70)
+var card_action:Callable = func() -> void: queue_free()
 var is_drawn:bool = false
+var draw_id:int = -1
 
 @export_range(1, 13) var rank:int = 1
 @export var suit:CardSuit = CardSuit.HEARTS
@@ -41,6 +43,9 @@ func _ready() -> void:
 	input_event.connect(func(_vp:Node, event:InputEvent, _shpidx:int) -> void:
 		if event is InputEventMouseMotion:
 			_hover()
+		if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_LEFT && event.pressed == false:
+				card_action.call()
 	)
 
 func _physics_process(delta: float) -> void:
@@ -66,8 +71,9 @@ func set_data(cardrank:int, cardsuit:CardSuit) -> Card:
 	suit = cardsuit
 	return self
 
-func set_transition_pos(pos:Vector2i) -> Card:
-	targetPosition = pos
+func set_transition_pos(pos:Vector2i, is_tile_pos:bool = false) -> Card:
+	var newpos:Vector2i = pos if !is_tile_pos else ((pos * cardSize) + cardSize / 2)
+	targetPosition = newpos
 	return self
 
 func draw(tile:Vector2i) -> Card:
@@ -125,3 +131,7 @@ func _unhover() -> void:
 		_outline.visible = false
 		_tooltip.visible = false
 		hoveredCard = null
+
+func with_draw_id(id:int = -1) -> Card:
+	draw_id = id
+	return self

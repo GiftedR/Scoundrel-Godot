@@ -6,6 +6,8 @@ static var Instance:Root
 @export_file("*.tscn") var GameToLoad:String = "res://Collections/c_GameRoot.tscn"
 
 var _loadedGame:Gameroot
+var _loadedCamera:MainCamera
+static var wins:int = 0
 
 func _init() -> void:
 	Instance = self
@@ -17,7 +19,9 @@ func load_game(path:String) -> void:
 	if _loadedGame != null:
 		_loadedGame.queue_free()
 		_loadedGame = null
-	add_child(MainCamera.Create())
+	if _loadedCamera == null:
+		_loadedCamera = MainCamera.Create()
+		add_child(_loadedCamera)
 	var game:Gameroot = load(path).instantiate()
 	_loadedGame = game
 	add_child.call_deferred(game)
@@ -37,3 +41,11 @@ func _input(_event: InputEvent) -> void:
 		OilBoard.random_oil_transition()
 	if Input.is_action_just_pressed("dev_2"):
 		OilBoard.random_solid_transition()
+
+func new_game(did_win:bool = false) -> void:
+	if _loadedGame != null:
+		_loadedGame.queue_free()
+		_loadedGame = null
+	if did_win:
+		wins += 1
+	load_game(GameToLoad)
